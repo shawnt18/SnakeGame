@@ -7,7 +7,7 @@ public:
 	Board(int max_height, int max_width);
 	~Board();
 	void Draw();
-	void SnakeMove(Snake snake);
+	void SnakeMove(Snake& snake);
 
 private:
 	int height;
@@ -15,4 +15,3 @@ private:
 
 	char ** board;
 };
-

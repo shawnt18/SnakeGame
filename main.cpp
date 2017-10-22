@@ -8,7 +8,9 @@
 //		   Picking up a bomb -2000 points.
 
 #include <iostream>
+#include <stdio.h>
 #include <conio.h>
+#include <time.h>
 #include "Board.h"
 #include "Snake.h"
 #include "Fruit.h"
@@ -57,7 +59,7 @@ void runGame() {
 		if (_kbhit()) {
 			snake.ChangeDirection(_getch());
 		}
-		update(gameBoard, snake);
+		update(gameBoard, snake);	// Call-by-ref function
 	}
 }
 

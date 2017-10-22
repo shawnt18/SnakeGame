@@ -14,21 +14,26 @@ Snake::Snake(int height, int width) {
 Snake::~Snake() {
 }
 
-void Snake::ChangeDirection(char key){
+void Snake::ChangeDirection(char key) {
 	switch (key) {
 	case 'a':
-		direction = LEFT;
+		direction = 2;	//	LEFT
 		break;
 	case 'w':
-		direction = UP;
+		direction = 1;	//	UP
 		break;
 	case 's':
-		direction = DOWN;
+		direction = 4;	//	DOWN
 		break;
 	case 'd':
-		direction = RIGHT;
+		direction = 3;	//	RIGHT
 		break;
 	}
+}
+
+void Snake::setNewHead(int x, int y) {
+	currentX += x;
+	currentY += y;
 }
 
 int Snake::getX() {
@@ -37,4 +42,8 @@ int Snake::getX() {
 
 int Snake::getY() {
 	return currentY;
+}
+
+int Snake::getDirection() {
+	return direction;
 }
