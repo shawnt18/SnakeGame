@@ -17,7 +17,7 @@ using namespace std;
 
 // HEADER FUNCTIONS
 void runGame();
-void update(Board gameBoard, Snake snake);
+void update(Board& gameBoard, Snake& snake);
 void render();
 void clearScreen();
 
@@ -61,7 +61,7 @@ void runGame() {
 	}
 }
 
-void update(Board gameBoard, Snake snake) {
+void update(Board& gameBoard, Snake& snake) {
 	gameBoard.SnakeMove(snake);
 }
 
