@@ -15,3 +15,11 @@ Fruit::Fruit(int height, int width) {
 Fruit::~Fruit()
 {
 }
+
+int Fruit::getX() {
+	return currentX;
+}
+
+int Fruit::getY() {
+	return currentY;
+}

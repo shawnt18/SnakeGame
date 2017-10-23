@@ -19,9 +19,13 @@ using namespace std;
 
 // HEADER FUNCTIONS
 void runGame();
-void update(Board& gameBoard, Snake& snake);
+void update(Board& gameBoard, Snake& snake, bool& noFruit);
 void render();
 void clearScreen();
+
+// GLOBAL CONSTANTS
+const int BOARD_HEIGHT = 20;
+const int BOARD_WIDTH = 40;
 
 // MAIN PROGRAM
 int main() {
@@ -46,12 +50,10 @@ int main() {
 // FUNCTIONS
 void runGame() {
 	bool gameOver = false;
+	bool noFruit = true;
 
-	const int BOARD_HEIGHT = 20;
-	const int BOARD_WIDTH = 40;
-
-	Board gameBoard = Board::Board(BOARD_HEIGHT, BOARD_WIDTH);
-	Snake snake = Snake::Snake(BOARD_HEIGHT, BOARD_WIDTH);
+	Board gameBoard = Board(BOARD_HEIGHT, BOARD_WIDTH);
+	Snake snake = Snake(BOARD_HEIGHT, BOARD_WIDTH);
 
 	while (!gameOver) {
 		clearScreen();
@@ -59,12 +61,18 @@ void runGame() {
 		if (_kbhit()) {
 			snake.ChangeDirection(_getch());
 		}
-		update(gameBoard, snake);	// Call-by-ref function
+		update(gameBoard, snake, noFruit);	// Call-by-ref function
 	}
 }
 
-void update(Board& gameBoard, Snake& snake) {
+void update(Board& gameBoard, Snake& snake, bool& noFruit) {
 	gameBoard.SnakeMove(snake);
+
+	if (noFruit) {
+		Fruit fruit = Fruit(BOARD_HEIGHT, BOARD_WIDTH);
+		gameBoard.newFruit(fruit);
+		noFruit = false;
+	}
 }
 
 void render() {

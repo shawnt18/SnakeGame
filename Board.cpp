@@ -75,3 +75,9 @@ void Board::SnakeMove(Snake& snake) {
 	board[y + dy][x + dx] = 'O';
 	snake.setNewHead(dx, dy);
 }
+
+void Board::newFruit(Fruit fruit) {
+	int fruitX = fruit.getX();
+	int fruitY = fruit.getY();
+	board[fruitY][fruitX] = 'F';
+}

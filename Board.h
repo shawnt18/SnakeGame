@@ -1,5 +1,6 @@
 #pragma once
 #include "Snake.h"
+#include "Fruit.h"
 class Board
 {
 public:
@@ -8,6 +9,7 @@ public:
 	~Board();
 	void Draw();
 	void SnakeMove(Snake& snake);
+	void newFruit(Fruit fruit);
 
 private:
 	int height;
